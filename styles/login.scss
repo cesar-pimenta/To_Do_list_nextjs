@@ -10,70 +10,115 @@
     }
 
     .form{
-        p{
-            text-align: center;
-            color: $errorColor;
-            font-weight: bold;
-            max-width: 300px;
-        }
-
         div{
-            display: flex;
-            padding: 10px;
-
-            img {
-                width: 20px;
-                height: 20px;
-                margin-right: 18px;
-                margin-top: 1px;
+            p{
+                text-align: center;
+                color: $errorColor;
+                font-weight: bold;
+                max-width: 300px;
             }
-            input{
-                width: 224px;
-                font-size: 14px;
-                letter-spacing: 0.01em;
+    
+            div{
+                display: flex;
+                padding: 10px;
+    
+                img{
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 18px;
+                    margin-top: 1px;
+                }
+                input{
+                    width: 224px;
+                    font-size: 14px;
+                    letter-spacing: 0.01em;
+                    color: $primaryColor;
+                    border-radius: 0px;
+                    border-top-width: 0px;
+                    border-left-width: 0px;
+                    border-right-width: 0px;
+                    border-bottom: 1px solid $mediumGreyColor;
+    
+                    padding-bottom: 8px;
+    
+                    outline: none;
+    
+                    &:focus{
+                        border-bottom-color: $primaryColor;
+                    }
+    
+                    &::placeholder{
+                        color: $mediumGreyColor;
+                        opacity: 1;
+                    }
+    
+                    &:-ms-input-placeholder{
+                        color: $mediumGreyColor;
+                    }
+    
+                    &::-ms-input-placeholder{
+                        color: $mediumGreyColor;
+                    }
+                }
+            }
+    
+            button{
+                width: 100%;
+                height: 56px;
+                background-color: $primaryColor;
+                border: none;
+                color: white;
+                border-radius: 12px;
+                font-size: 16px;
+                margin-top: 30px;
+            }
+    
+            .divider{
+                padding: 0;
+                margin-top: 32px;
+                margin-bottom: 32px;
+                display: flex;
+                align-items: center;
+                color: $mediumGreyColor;
+        
+                .solid{
+                    border-top: 1px solid;
+                    border-radius: 5px;            
+                    width: 45%;
+                    flex: 0.4;            
+                }
+        
+                >span{
+                    font-size: 12px;
+                    flex:0.2;
+                    text-align: center;
+                }
+            }
+        
+            .button-cadastrar, .button-cancelar{
+                background-color: white;
+                border: 1px solid $primaryColor;
                 color: $primaryColor;
-                border-radius: 0px;
-                border-top-width: 0px;
-                border-left-width: 0px;
-                border-right-width: 0px;
-                border-bottom: 1px solid $mediumGreyColor;
+                margin-top: 0px;
+            }
 
-                padding-bottom: 8px;
-
-                outline: none;
-
-                &:focus{
-                    border-bottom-color: $primaryColor;
-                }
-
-                &::placeholder{
-                    color: $mediumGreyColor;
-                    opacity: 1;
-                }
-
-                &:-ms-input-placeholder{
-                    color: $mediumGreyColor;
-                }
-
-                &::-ms-input-placeholder{
-                    color: $mediumGreyColor;
-                }
+            .button-cancelar{
+                margin-top: 15px;
             }
         }
 
-        button{
-            width: 100%;
-            height: 56px;
-            background-color: $primaryColor;
-            border: none;
-            color: white;
-            border-radius: 12px;
-            font-size: 16px;
-            margin-top: 30px;
-        }
-    }
+        .form-login{
+            button{
+                margin-top: 50px;
+            }
 
-    @media screen and (min-width: $mediaQueryDesktop) {
+            .button-cadastrar{
+                margin-top: 0px;
+            }
+        }
+    }    
+
+    @media screen and (min-width: $mediaQueryDesktop){
         width: 100%;
         display: flex;
         align-items: center;
@@ -90,24 +135,44 @@
             padding: 80px 40px;
             margin-left: 20px;
 
-            p{
-                max-width: none;
-            }
-
-            div{
-                img{
-                    width: 22px;
-                    height: 22px;
+            div{    
+                p{
+                    max-width: none;
                 }
 
-                input{
-                    width: 343px;
-                    font-size: 16px;
+                .divider{
+                    margin-top: 20px;
+                    margin-bottom: 20px;
                 }
-            }
-
-            button{
-                font-size: 18px;
+    
+                div{
+                    img{
+                        width: 22px;
+                        height: 22px;
+                    }
+    
+                    input{
+                        width: 343px;
+                        font-size: 16px;
+                    }
+                }
+    
+                button{
+                    font-size: 18px;
+                }
+            } 
+            
+            .form-login{
+                margin-top: 29px;
+                margin-bottom: 29px;
+                
+                button{
+                    margin-top: 30px;
+                }
+    
+                .button-cadastrar{
+                    margin-top: 0px;
+                }                
             }
         }
     }

@@ -22,6 +22,8 @@ export const List : NextPage<ListProps> = ({list, getFilteredList}) =>{
     const [name, setName] = useState('');
     const [previsionDate, setPrevisionDate] = useState('');
     const [finishDate, setFinishDate] = useState('');
+    const [previsionDateInput, setPrevisionDateInput] = useState('text');
+    const [finishDateInput, setFinishDateInput] = useState('text');
 
     const closeModal = () => {
         setShowModal(false);
@@ -36,6 +38,10 @@ export const List : NextPage<ListProps> = ({list, getFilteredList}) =>{
         setName(task.name);
         setId(task._id || '');
         setPrevisionDate(moment(task.finishPrevisionDate).format('yyyy-MM-DD'));
+
+        if(task.finishPrevisionDate){
+            setPrevisionDate('date');
+        }
     }
 
     const updateTask = async() => {
@@ -116,9 +122,11 @@ export const List : NextPage<ListProps> = ({list, getFilteredList}) =>{
                         {error && <p className='error'>{error}</p>}
                         <input type="text" placeholder='Nome da tarefa'
                             value={name} onChange={e => setName(e.target.value)}/>
-                        <input type="date" placeholder='Data de previsão da tarefa'
+                        <input type={previsionDateInput} placeholder='Previsão da tarefa'
+                            onFocus={e => setPrevisionDateInput('date')} onBlur={e => !e.target.value ? setPrevisionDateInput('text') : false}
                             value={previsionDate} onChange={e => setPrevisionDate(e.target.value)}/>
-                        <input type="date" placeholder='Data de conclusão'
+                        <input type={finishDateInput} placeholder='Data de conclusão'
+                            onFocus={e => setFinishDateInput('date')} onBlur={e => !e.target.value ? setFinishDateInput('text') : false}
                             value={finishDate} onChange={e => setFinishDate(e.target.value)}/>
                 </Modal.Body>
                 <Modal.Footer>
