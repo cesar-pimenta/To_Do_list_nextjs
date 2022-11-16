@@ -1,0 +1,79 @@
+@import './config.scss';
+
+.container-modal{
+    margin-top: 150px;
+
+    button{
+        width: 40%;
+        height: 50px;
+        background-color: $primaryColor;
+        border: none;
+        outline: none;
+        color: white;
+        border-radius: 12px;
+        font-size: 15px;
+        margin-right: 15px;
+        cursor: pointer;
+    }
+
+    span{
+        color: $mediumGreyColor;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    
+    p {
+        color: $primaryColor;
+        text-align: center;
+        font-size: 17px;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    input{
+        border-width: 0.5px;
+        border-color: $mediumGreyColor;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 90%;
+    }
+
+    .error{
+        color: $errorColor;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px;
+    }
+
+    .modal-body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-content{
+        border-radius: 15px;
+    }
+
+    .modal-footer{
+        border-top: none;
+    }
+
+    @media screen and (min-width: $mediaQueryDesktop) {
+        button{
+            background-color: $mediumGreyColor;
+            
+            &:hover{
+                background-color: $primaryColor;
+            }
+        }
+    }
+}
